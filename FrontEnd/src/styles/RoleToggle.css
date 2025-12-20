@@ -1,0 +1,27 @@
+.role-toggle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.role-toggle-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.toggle-btn {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+}
+
+.toggle-btn.active {
+  background: rgba(3, 169, 244, 0.25);
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.4);
+}

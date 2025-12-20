@@ -1,0 +1,267 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --text: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+/* Apply theme to body */
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Centers the card on the page */
+.landscape-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* The landscape card with 4:3 aspect ratio */
+.landscape-card {
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Overlay content (glass style) */
+.overlay-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.overlay-content h2,
+.overlay-content p {
+  margin: 0.5rem 0;
+}
+
+.overlay-content button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #FFD700;
+  color: #03254c;
+  font-weight: bold;
+}
+.overlay-content button:hover {
+  background: #e6c200;
+}
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .landscape-card {
+    width: 100%;
+  }
+  .overlay-content {
+    padding: 1rem;
+  }
+}
+
+.landscape-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.landscape-card {
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.overlay-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.overlay-content input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.4rem 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.overlay-content button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #ffd700;
+  color: #03254c;
+  font-weight: bold;
+}
+
+.overlay-content button:hover {
+  opacity: 0.9;
+}
+@media (max-width: 500px) {
+  .landscape-card {
+    width: 100%;
+  }
+  .overlay-content {
+    padding: 1rem;
+  }
+}
+
+.theme-toggle {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+.toggle {
+  display: flex;
+  background: #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  width: 240px;
+  height: 50px;
+}
+
+.toggle input[type="radio"] { display: none; }
+
+.toggle label {
+  flex: 1;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+  z-index: 2;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 33.3%;
+  width: 33.3%;
+  height: 100%;
+  background: #03254c;
+  transition: left 0.3s ease;
+  z-index: 1;
+}
+
+#light:checked ~ .slider { left: 0%; }
+#system:checked ~ .slider { left: 33.3%; }
+#dark:checked ~ .slider { left: 66.6%; }
+
+#light:checked + label,
+#system:checked + label,
+#dark:checked + label {
+  color: white;
+}
+
+.theme-switch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.centered-theme-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.theme-switch {
+  transform: scale(0.8);
+}
+
+/* iOS-style toggle switch */
+.ios-toggle {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  display: inline-block;
+}
+
+.ios-toggle input {
+  display: none;
+}
+
+.ios-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.ios-toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: white;
+  left: 3px;
+  bottom: 3px;
+  transition: 0.4s;
+}
+
+.ios-toggle input:checked + .slider {
+  background: #4caf50;
+}
+
+.ios-toggle input:checked + .slider:before {
+  transform: translateX(22px);
+}
